@@ -1,4 +1,4 @@
-﻿risk_profile,equity_lower,equity_upper
+﻿risk_profile,equity_lower_limit,equity_upper_limit
 aggressive,0.75,0.9
 moderate,0.4,0.6
 conservative,0,0.25
