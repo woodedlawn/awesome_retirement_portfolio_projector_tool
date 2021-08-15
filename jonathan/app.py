@@ -3,7 +3,31 @@ import fire
 import questionary
 import subprocess
 
-from db import update_portfolio
+from db import update_portfolio, update_report
+
+
+def get_report_details():
+  report_details = {}
+  report_details['risk_tolerance'] = questionary.select(
+      "What is your current risk profile?",
+      choices=[
+          questionary.Choice(
+            title = "YOLO! (high risk)",
+            value = 'high',
+          ),
+          questionary.Choice(
+            title = "Moderation is best in all the things. (medium risk)",
+            value = 'medium',
+          ),
+          questionary.Choice(
+            title = "I'm afraid of losing money. (low risk)",
+            value = 'low',
+          )
+      ]
+    ).ask()
+  report_details['years_until_retirement'] = questionary.text("How many years until you retire?", validate=lambda text: text.isdecimal()).ask()
+  return report_details
+
 
 
 def get_portfolio():
@@ -12,8 +36,14 @@ def get_portfolio():
   more_assets = True
   while more_assets:
     asset = {}
-    print("\n")
-    asset['symbol'] = questionary.text("What's the symbol of your portfolio asset?").ask()
+    asset['symbol'] = questionary.text(
+      "What's the symbol of your portfolio asset?",
+      validate=lambda text: len(text) > 0
+    ).ask()
+    asset['quantity'] = questionary.text(
+      f"How many units of {asset['symbol']} are in your portfolio?",
+      validate=lambda text: text.isdecimal()
+    ).ask()
     asset['type'] = questionary.select(
       f"What type of asset is {asset['symbol']}?",
       choices=[
@@ -22,8 +52,9 @@ def get_portfolio():
           "Other",
       ]
     ).ask()
-    asset['quantity'] = questionary.text(f"How many units of {asset['symbol']} are in the portfolio?", validate=lambda text: text.isdecimal()).ask()
     portfolio.append(asset)
+
+    print()
     more_assets = questionary.confirm("Add another asset to your portfolio?").ask()
   
   if not more_assets:
@@ -32,6 +63,8 @@ def get_portfolio():
 
 def awesome_app():
   print("Welcome to the Awesome Retirement Portfolio Projector Tool!")
+  
+  print()
   portfolio = get_portfolio()
 
   if len(portfolio) == 0:
@@ -39,6 +72,12 @@ def awesome_app():
 
   update_portfolio(portfolio)
 
+  print()
+  report_details = get_report_details()
+
+  update_report(report_details)
+
+  print()
   show_dashboard = questionary.confirm('Show the dashboard?').ask()
 
   if show_dashboard:

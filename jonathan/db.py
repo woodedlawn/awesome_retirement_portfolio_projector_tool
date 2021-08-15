@@ -33,3 +33,21 @@ def update_portfolio(portfolio):
     count += 1
   
   engine.execute(insert_portfolio_sql)
+
+
+
+def update_report(report_details):
+  engine = get_db()
+
+  engine.execute("DROP TABLE IF EXISTS report")
+  engine.execute("""
+    CREATE TABLE report (
+      risk_tolerance VARCHAR,
+      years_until_retirement REAL
+    )
+  """)
+  engine.execute(f"""
+    INSERT INTO report ("risk_tolerance", "years_until_retirement")
+    VALUES ("{report_details['risk_tolerance']}", "{report_details['years_until_retirement']}")
+  """)
+
