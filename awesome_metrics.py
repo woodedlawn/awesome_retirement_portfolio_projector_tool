@@ -1,6 +1,4 @@
-
-
-# THIS FUNCTION WE CAN SET APART AND REUSED TO VALUE PORTFOLIOS
+import numpy as np
 
 def get_portfolio_allocation_and_valuation(portfolio_df, close_prices_df):
     """
