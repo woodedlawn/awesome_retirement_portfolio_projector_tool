@@ -6,6 +6,7 @@
 - summary
 
 which charts?
+Initial table with symbol, quantities and asset type. To show the easiest possible input.
 
 ---
 
@@ -16,11 +17,12 @@ which charts?
 - recommended weights in porfolio
 
 which charts?
+Optimal portfolio versus original portfolio weights bar charts
 
 ---
 
 ## Comparisons
 
-Original vs Optimized Volatility
+Original vs Optimized Volatility and expected return chart
 
-Original vs Optimized Montecarlo
+Original vs Optimized Montecarlo -- pending chart
