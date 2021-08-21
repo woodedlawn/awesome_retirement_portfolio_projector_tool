@@ -16,8 +16,8 @@ def get_report_details():
             value = 'high',
           ),
           questionary.Choice(
-            title = "Moderation is best in all the things. (medium risk)",
-            value = 'medium',
+            title = "Moderation is best in all the things. (moderate risk)",
+            value = 'moderate',
           ),
           questionary.Choice(
             title = "I'm afraid of losing money. (low risk)",
@@ -83,7 +83,7 @@ def awesome_app():
   show_dashboard = questionary.confirm('Show the dashboard?').ask()
 
   if show_dashboard:
-    voila_process = subprocess.Popen(['voila', 'awesome_portfolio.ipynb', '--theme=light'])
+    voila_process = subprocess.Popen(['voila', 'awesome_portfolio_final.ipynb', '--theme=light'])
     voila_process.communicate()
 
   else:
