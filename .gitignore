@@ -130,3 +130,6 @@ dmypy.json
 
 #MAC
 .DS_Store
+
+# hide awesome_app.db
+awesome_app.db
