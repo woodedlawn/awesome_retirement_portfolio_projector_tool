@@ -1,6 +1,9 @@
 import sqlalchemy as sql
 
 def get_db():
+  '''
+    Returns the sqlite db engine
+  '''
   connection_string = 'sqlite:///awesome_app.db'
   engine = sql.create_engine(connection_string, echo=False)
   
@@ -9,6 +12,15 @@ def get_db():
 
 
 def update_portfolio_db(portfolio):
+  '''
+    Updates the sqlite db with portfolio
+
+    Args:
+    portfolio (list): List of portfolio positions 
+
+    Returns:
+    None
+  '''
   engine = get_db()
 
   engine.execute("DROP TABLE IF EXISTS portfolio")
@@ -37,6 +49,15 @@ def update_portfolio_db(portfolio):
 
 
 def update_report_db(report_details):
+  '''
+    Updates the sqlite db with report
+
+    Args:
+    report_details (dict): Dict of report attributes
+
+    Returns:
+    None
+  '''
   engine = get_db()
 
   engine.execute("DROP TABLE IF EXISTS report")

@@ -7,6 +7,13 @@ from db import update_portfolio_db, update_report_db
 
 
 def get_report_details():
+  '''
+    Gets the report details from user via questionary
+
+    Returns:
+    report_details (dict): Dict of report attributes
+  '''
+
   report_details = {}
   report_details['risk_tolerance'] = questionary.select(
       "What is your current risk profile?",
@@ -31,6 +38,13 @@ def get_report_details():
 
 
 def get_portfolio():
+  '''
+    Gets the portfolio positions from user via questionary
+
+    Returns:
+    portfolio (list): List of portfolio positions 
+  '''
+
   portfolio = []
 
   more_assets = True
@@ -64,6 +78,12 @@ def get_portfolio():
 
 
 def awesome_app():
+  '''
+    Runs the main program
+
+    Returns:
+    None
+  '''
   print("Welcome to the Awesome Retirement Portfolio Projector Tool!")
   
   print()
