@@ -19,7 +19,7 @@ def get_portfolio_allocation_and_valuation(portfolio_df, close_prices_df):
     The original dataframe extended with 3 columns:
         1. the price of each security,
         2. the total value of each position, and 
-        3. the allocation o each position
+        3. the allocation on each position
     """
     # Getting last prices  
     last_price = []
@@ -39,9 +39,19 @@ def get_portfolio_allocation_and_valuation(portfolio_df, close_prices_df):
 
 def get_annual_expected_return_volatility_and_sharpe_ratio(portfolio_weights, portfolio_daily_returns):
     """
-    This function returns and array of key metrics such as 
-    annualized expected return, volatility, and sharpe ratio
-    of a portfolio given the individual security allocation and historical series of daily returns
+    This function returns an array of the following key metrics of a portfolio:  
+    annualized expected return, volatility, and sharpe ratio.
+    
+    Arguments:
+    portfolio_weights: a list with the allocation of the individual securities of the portfolio
+    portfolio_daily_returns: a DataFrame with the daily returns of each of the securities
+    in the portfolio, in the same orden than the portfolio_weights
+
+    Returns:
+    An array with the following float calculations:
+        expected annual return, 
+        portfolio annualized volatility, 
+        annualized portfolio sharpe ratio
     """
     portfolio_weights = np.array(portfolio_weights)
     
