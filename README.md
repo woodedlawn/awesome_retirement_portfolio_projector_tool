@@ -83,6 +83,7 @@ We will include in next versions:
     4. Rebalance of the portfolio
     5. Options to upload several portfolios, and keep them available for next usage
     6. Interphase to add portfolio from different sources, such as Schwab, Ameritrade, Fidelity, eTrade, etc.
+    7. Option to use yahoo finance if .env file for Alpaca is not available
 
 ---
 
