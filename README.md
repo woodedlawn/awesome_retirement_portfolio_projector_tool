@@ -32,6 +32,8 @@ The Alpaca Trade api provides a variety of updated stock and financial informati
 
 All python packages can be installed via PIP in the command line. For the Alpaca API, you will need to create and account and set up an API key at [Alpaca](https://alpaca.markets/)
 
+Once you have your Alpaca Key and Alpaca Secret Key, make sure to include it as an ".env" file, following the example of the file "sample.env" included.
+
 ![Pre-rec Packages](images/install1.png)
 
 ---
@@ -50,7 +52,7 @@ Simply tell the app what stocks you have in your portfolio.
 
 ## Usage
 
-To run the application, install the libraries listed above and run `python awesome_tool.py` from the command line.
+To run the application, install the libraries listed above and run (write) `python awesome_tool.py` from the command line. 
 
 The application will provide a recommended portfolio based on risk profile. The key elements for the recommendation are:
 
@@ -71,6 +73,16 @@ The application then runs a Montecarlo simulation based on the historical pricin
 
 The number of runs of the Montecarlo Simulation it has been set to 100 for a faster speed in the running of the program.
 This is easible customizable in Jupyter lab for higher amounts, like 500 or 1000.
+
+## Next steps
+
+We will include in next versions:
+
+    1. Option to customize expected returns
+    3. Inclusion of monthly contributions for retirement (in the MonteCarlo simulation)
+    4. Rebalance of the portfolio
+    5. Options to upload several portfolios, and keep them available for next usage
+    6. Interphase to add portfolio from different sources, such as Schwab, Ameritrade, Fidelity, eTrade, etc.
 
 ---
 
